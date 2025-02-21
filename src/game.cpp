@@ -54,12 +54,12 @@ void Game::Run() {
 			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cin >> input;
 		}
-		std::cout << player->COLNUM;
 		ParseInput();
 	}
 }
 
 void Game::ParseInput() {
+	dialogueManagerInstance->currentDialogue.Clear();
 	if (input == "mvn") {
 		MovePlayer(1);
 	}
@@ -69,20 +69,27 @@ void Game::ParseInput() {
 	else if (input == "mve") {
 		MovePlayer(3);
 	}
-	else if(input == "mvw") {
+	else if (input == "mvw") {
 		MovePlayer(4);
 	}
-
+	else if (input == "quit") {
+		exit(0);
+	}
+	else if (input == "help") {
+		dialogueManagerInstance->currentDialogue = "CONTROLS:\n Move North - mvn \n Move East - mve \n Move South - mvs \n Move West - mvw \n Quit - quit" ;
+	}
 }
 
 void Game::MovePlayer(int dir) {
-	switch (dir) {
- 
+	switch (dir) { 
 	// NORTH
 	case 1:
 		if (player->ROWNUM != 0) {
 			player->ROWNUM--;
 			player->currentRoom = &(rooms[player->ROWNUM][player->COLNUM]);
+		}
+		else {
+			dialogueManagerInstance->currentDialogue = "You cannot move any further NORTH.";
 		}
 		break;
 	// SOUTH
@@ -91,6 +98,9 @@ void Game::MovePlayer(int dir) {
 			player->ROWNUM++;
 			player->currentRoom = &(rooms[player->ROWNUM][player->COLNUM]);
 		}
+		else {
+			dialogueManagerInstance->currentDialogue = "You cannot move any further SOUTH.";
+		}
 		break;
 	// EAST	
 	case 3:
@@ -98,13 +108,19 @@ void Game::MovePlayer(int dir) {
 			player->COLNUM++;
 			player->currentRoom = &(rooms[player->ROWNUM][player->COLNUM]);
 		}
-
+		else {
+			dialogueManagerInstance->currentDialogue = "You cannot move any further EAST.";
+		}
 		break;
 	// WEST
 	case 4:
 		if (player->COLNUM != 0) {
 			player->COLNUM--;
 			player->currentRoom = &(rooms[player->ROWNUM][player->COLNUM]);
+		}
+		else {
+			dialogueManagerInstance->currentDialogue = "You cannot move any further WEST.";
+
 		}
 		break;
 	default: 

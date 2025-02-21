@@ -1,6 +1,6 @@
 #include "dialoguemanager.hpp"
 DialogueManager* DialogueManager::instance = nullptr;
-String DialogueManager::currentDialogue = "balls";
+String DialogueManager::currentDialogue = "Type \"help\" to view the controls.";
 DialogueManager::DialogueManager() {}
 
 
