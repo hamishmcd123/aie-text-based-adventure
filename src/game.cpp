@@ -1,13 +1,15 @@
 #include "game.hpp"
-#include "room.hpp"
 
 Game::Game() {
+ seed = std::time(NULL);
+ std::srand(seed);
 	// NOTE: Keep in mind potential race condition with Item class?
 	dialogueManagerInstance = DialogueManager::GetInstance();
 	player = new Player;
 	player->currentRoom = &(rooms[3][3]);
 	player->COLNUM = 3;
 	player->ROWNUM = 3;
+
 	// Initialise Room Numbers/Positions 
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {
@@ -15,10 +17,25 @@ Game::Game() {
 			rooms[i][j].ROWNUM = j;
 		}
 	}
+
+	itemArray[0] = new Lamp;
+	itemArray[1] = nullptr;
+	itemArray[2] = nullptr;
+
+	for (Item* i : itemArray) {
+		int temprow = rand() % 7;
+		int tempcol = rand() % 7;
+		while (rooms[temprow][tempcol].item != nullptr) {
+			int temprow = rand() % 7;
+			int tempcol = rand() % 7;
+		}
+		rooms[temprow][tempcol].item = i; 
+	}
 }
 
 Game::~Game() {
 	delete player;
+	delete[] itemArray; 
 }
 
 void Game::DrawRooms() {
@@ -32,6 +49,9 @@ void Game::DrawRooms() {
 			else if (rooms[i][j].item == nullptr) {
 				std::cout << " [ ] ";
 			}
+			else if (rooms[i][j].item == itemArray[0]) {
+				std::cout << " [L] ";
+			}
 			else {
 				std::cout << " [ ] ";
 			}
@@ -41,6 +61,7 @@ void Game::DrawRooms() {
 
 
 void Game::Run() {
+
 	while (true) {
 		system("cls");
 		DrawRooms();
@@ -77,6 +98,15 @@ void Game::ParseInput() {
 	}
 	else if (input == "help") {
 		dialogueManagerInstance->currentDialogue = "CONTROLS:\n Move North - mvn \n Move East - mve \n Move South - mvs \n Move West - mvw \n Quit - quit" ;
+	}
+	else if (input == "seed") {
+		// should be big enough for the forseeable future...
+		char buff[50];
+		sprintf(buff, "Seed: %d", seed);
+		dialogueManagerInstance->currentDialogue = buff;
+	}
+	else {
+		dialogueManagerInstance->currentDialogue = "Unknown command.";
 	}
 }
 
