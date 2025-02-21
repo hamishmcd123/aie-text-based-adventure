@@ -18,6 +18,7 @@ public:
 	void MovePlayer(int dir);
 	void ParseInput();
 	int seed;
+	void RoomDescription();
 	Item* itemArray[3]; 
 private:
 	Room rooms[8][8]; 

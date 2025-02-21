@@ -79,6 +79,17 @@ void Game::Run() {
 	}
 }
 
+void Game::RoomDescription() {
+	Room currentRoom = rooms[player->ROWNUM][player->COLNUM];
+		// Could probably put inside something...
+		if (currentRoom.item == itemArray[0]) {
+			(*itemArray[0]).Description();
+		}
+		else {
+			dialogueManagerInstance->currentDialogue = "The room is empty.";
+		}
+}
+
 void Game::ParseInput() {
 	dialogueManagerInstance->currentDialogue.Clear();
 	if (input == "mvn") {
@@ -97,13 +108,27 @@ void Game::ParseInput() {
 		exit(0);
 	}
 	else if (input == "help") {
-		dialogueManagerInstance->currentDialogue = "CONTROLS:\n Move North - mvn \n Move East - mve \n Move South - mvs \n Move West - mvw \n Quit - quit" ;
+		dialogueManagerInstance->currentDialogue = "CONTROLS:\n Move North - mvn \n Move East - mve \n Move South - mvs \n Move West - mvw \n Room Description - desc \n Quit - quit";
 	}
 	else if (input == "seed") {
 		// should be big enough for the forseeable future...
 		char buff[50];
 		sprintf(buff, "Seed: %d", seed);
 		dialogueManagerInstance->currentDialogue = buff;
+	}
+	else if (input == "desc") {
+		RoomDescription();
+	}
+	else if (input == "use") {
+		if (rooms[player->ROWNUM][player->COLNUM].item != nullptr) {
+			rooms[player->ROWNUM][player->COLNUM].item->Use();
+		}
+		else {
+			dialogueManagerInstance->currentDialogue = "There is nothing to use.";
+		}
+	}
+	else if (input == "banban") {
+		dialogueManagerInstance->currentDialogue = "smash";
 	}
 	else {
 		dialogueManagerInstance->currentDialogue = "Unknown command.";
