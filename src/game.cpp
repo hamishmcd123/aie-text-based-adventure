@@ -35,7 +35,9 @@ Game::Game() {
 
 Game::~Game() {
 	delete player;
-	delete[] itemArray; 
+	for (Item* i : itemArray) {
+		delete i;
+	}
 }
 
 void Game::DrawRooms() {
