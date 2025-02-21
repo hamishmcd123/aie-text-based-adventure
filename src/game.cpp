@@ -2,6 +2,8 @@
 #include "room.hpp"
 
 Game::Game() {
+	// NOTE: Keep in mind potential race condition with Item class?
+	dialogueManagerInstance = DialogueManager::GetInstance();
 	player = new Player;
 	player->currentRoom = &(rooms[3][3]);
 	player->COLNUM = 3;
@@ -42,6 +44,8 @@ void Game::Run() {
 	while (true) {
 		system("cls");
 		DrawRooms();
+		std::cout << '\n';
+		dialogueManagerInstance->PrintDialogue();
 		std::cout << '\n' << "> "; 
 		input.Clear();
 		std::cin >> input;

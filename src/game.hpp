@@ -3,8 +3,8 @@
 #include "room.hpp"
 #include "player.hpp"
 #include <iostream>
-#include <tuple>
 #include "string.hpp"
+#include "dialoguemanager.hpp"
 class Game {
 public:
 	Game();
@@ -12,6 +12,7 @@ public:
 	void Run();
 	void DrawRooms();
 	String input;
+	DialogueManager* dialogueManagerInstance;
 	void MovePlayer(int dir);
 	void ParseInput();
 private:

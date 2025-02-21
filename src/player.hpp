@@ -10,7 +10,6 @@ public:
 	Room* currentRoom;
 	int COLNUM;
 	int ROWNUM;
-
 private:
 	std::list<String> spells;
 };

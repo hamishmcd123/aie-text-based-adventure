@@ -1,5 +1,6 @@
 #include "item.hpp"
 
+DialogueManager* Item::dialogueManagerInstance = DialogueManager::GetInstance();
 
 void Item::Use() {}
 
