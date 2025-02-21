@@ -2,14 +2,15 @@
 #include "string.hpp"
 #include <list>
 #include "room.hpp"
-#include <vector>
 class Player {
 public:
 	Player();
 	~Player();
 	bool FindSpell(String spell);
 	Room* currentRoom;
-	std::vector<int> pos;
+	int COLNUM;
+	int ROWNUM;
+
 private:
-	std::list<String> spells; 
+	std::list<String> spells;
 };

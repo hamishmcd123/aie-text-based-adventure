@@ -13,7 +13,7 @@ public:
 	void DrawRooms();
 	String input;
 	void MovePlayer(int dir);
-	void UpdatePlayerPos();
+	void ParseInput();
 private:
 	Room rooms[8][8]; 
 	Player* player;
