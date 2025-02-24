@@ -1,4 +1,5 @@
 #include "lamp.hpp"
+using namespace World;
 
 Lamp::Lamp() : description(""){
 	dialogueManagerInstance->GetInstance();

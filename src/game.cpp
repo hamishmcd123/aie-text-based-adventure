@@ -1,5 +1,7 @@
 #include "game.hpp"
 
+using namespace Core; 
+
 Game::Game() {
  seed = std::time(NULL);
  std::srand(seed);
@@ -18,11 +20,11 @@ Game::Game() {
 		}
 	}
 
-	itemArray[0] = new Lamp;
+	itemArray[0] = new World::Lamp;
 	itemArray[1] = nullptr;
 	itemArray[2] = nullptr;
 
-	for (Item* i : itemArray) {
+	for (World::Item* i : itemArray) {
 		int temprow = rand() % 7;
 		int tempcol = rand() % 7;
 		while (rooms[temprow][tempcol].item != nullptr) {
@@ -35,7 +37,7 @@ Game::Game() {
 
 Game::~Game() {
 	delete player;
-	for (Item* i : itemArray) {
+	for (World::Item* i : itemArray) {
 		delete i;
 	}
 }
@@ -82,9 +84,9 @@ void Game::Run() {
 }
 
 void Game::RoomDescription() {
-	Room currentRoom = rooms[player->ROWNUM][player->COLNUM];
+		player->currentRoom = &(rooms[player->ROWNUM][player->COLNUM]);
 		// Could probably put inside something...
-		if (currentRoom.item == itemArray[0]) {
+		if (player->currentRoom->item == itemArray[0]) {
 			(*itemArray[0]).Description();
 		}
 		else {

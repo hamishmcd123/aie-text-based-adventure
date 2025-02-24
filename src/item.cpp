@@ -1,6 +1,6 @@
 #include "item.hpp"
-
-DialogueManager* Item::dialogueManagerInstance = DialogueManager::GetInstance();
+using namespace World; 
+Core::DialogueManager* Item::dialogueManagerInstance = Core::DialogueManager::GetInstance();
 
 void Item::Use() {}
 

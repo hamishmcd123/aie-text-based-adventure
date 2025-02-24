@@ -1,6 +1,7 @@
 #pragma once
 #include "item.hpp"
 
+namespace World {
 class BoxOfDonuts: public Item {
 public:
 	BoxOfDonuts();
@@ -9,3 +10,4 @@ public:
 private:
 	int count;
 };
+}

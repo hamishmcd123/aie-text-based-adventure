@@ -1,6 +1,7 @@
 #pragma once
 #include "item.hpp"
 
+namespace World {
 class Cat : public Item {
 public:
 	Cat();
@@ -9,3 +10,4 @@ public:
 private:
 	bool purring;
 };
+}

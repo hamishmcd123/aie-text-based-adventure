@@ -2,9 +2,11 @@
 #include "string.hpp"
 #include "dialoguemanager.hpp"
 
+namespace World {
 class Item {
 public:
 	virtual void Description() const;
 	virtual void Use();
-	static	DialogueManager* dialogueManagerInstance;
+	static Core::DialogueManager* dialogueManagerInstance;
 };
+}

@@ -1,6 +1,6 @@
 #pragma once
 #include "string.hpp"
-
+namespace Core {
 class DialogueManager {
 public:
 	static String currentDialogue;
@@ -10,3 +10,4 @@ public:
 private:
 	DialogueManager();
 };
+}

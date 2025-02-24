@@ -1,5 +1,7 @@
 #include "room.hpp"
 
+using namespace World;
+
 Room::Room() {
 	item = nullptr;
 }

@@ -2,7 +2,7 @@
 
 
 int main() {
-	Game gameInstance; 
+	Core::Game gameInstance; 
 	gameInstance.Run();
 	return 0;
 }

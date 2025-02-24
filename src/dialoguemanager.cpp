@@ -1,4 +1,7 @@
 #include "dialoguemanager.hpp"
+
+using namespace Core;
+
 DialogueManager* DialogueManager::instance = nullptr;
 String DialogueManager::currentDialogue = "Type \"help\" to view the controls.";
 DialogueManager::DialogueManager() {}
