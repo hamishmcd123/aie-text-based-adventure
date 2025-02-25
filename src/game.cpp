@@ -21,7 +21,7 @@ Game::Game() {
 	}
 
 	itemArray[0] = new World::Lamp;
-	itemArray[1] = nullptr;
+	itemArray[1] = new World::Cat;
 	itemArray[2] = nullptr;
 
 	for (World::Item* i : itemArray) {
@@ -56,6 +56,9 @@ void Game::DrawRooms() {
 			else if (rooms[i][j].item == itemArray[0]) {
 				std::cout << " [L] ";
 			}
+			else if (rooms[i][j].item == itemArray[1]) {
+				std::cout << " [C] ";
+			}
 			else {
 				std::cout << " [ ] ";
 			}
@@ -78,6 +81,7 @@ void Game::Run() {
 			std::cin.clear();
 			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cin >> input;
+
 		}
 		ParseInput();
 	}
@@ -88,6 +92,9 @@ void Game::RoomDescription() {
 		// Could probably put inside something...
 		if (player->currentRoom->item == itemArray[0]) {
 			(*itemArray[0]).Description();
+		}
+		else if (player->currentRoom->item == itemArray[1]) {
+			(*itemArray[1]).Description();
 		}
 		else {
 			dialogueManagerInstance->currentDialogue = "The room is empty.";

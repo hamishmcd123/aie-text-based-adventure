@@ -39,6 +39,9 @@
     <ClCompile Include="lamp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.hpp">

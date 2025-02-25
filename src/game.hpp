@@ -7,6 +7,7 @@
 #include "string.hpp"
 #include "dialoguemanager.hpp"
 #include "lamp.hpp"
+#include "cat.hpp"
 
 namespace Core {
 		class Game {
