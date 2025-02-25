@@ -3,6 +3,7 @@
 using namespace Core; 
 
 Game::Game() {
+currentState = NORMAL;
  seed = std::time(NULL);
  std::srand(seed);
 	// NOTE: Keep in mind potential race condition with Item class?
@@ -22,7 +23,7 @@ Game::Game() {
 
 	itemArray[0] = new World::Lamp;
 	itemArray[1] = new World::Cat;
-	itemArray[2] = nullptr;
+	itemArray[2] = new World::BoxOfDonuts;
 
 	for (World::Item* i : itemArray) {
 		int temprow = rand() % 7;
@@ -59,6 +60,9 @@ void Game::DrawRooms() {
 			else if (rooms[i][j].item == itemArray[1]) {
 				std::cout << " [C] ";
 			}
+			else if (rooms[i][j].item = itemArray[2]) {
+				std::cout << " [D] ";
+			}
 			else {
 				std::cout << " [ ] ";
 			}
@@ -75,6 +79,7 @@ void Game::Run() {
 		std::cout << '\n';
 		dialogueManagerInstance->PrintDialogue();
 		std::cout << '\n' << "> "; 
+		if (currentState == NORMAL) {
 		input.Clear();
 		std::cin >> input;
 		while (!(std::cin.good())) {
@@ -84,8 +89,9 @@ void Game::Run() {
 
 		}
 		ParseInput();
+		}
+		}
 	}
-}
 
 void Game::RoomDescription() {
 		player->currentRoom = &(rooms[player->ROWNUM][player->COLNUM]);
@@ -95,6 +101,9 @@ void Game::RoomDescription() {
 		}
 		else if (player->currentRoom->item == itemArray[1]) {
 			(*itemArray[1]).Description();
+		}
+		else if (player->currentRoom->item == itemArray[2]) {
+			(*itemArray[2]).Description();
 		}
 		else {
 			dialogueManagerInstance->currentDialogue = "The room is empty.";
@@ -140,6 +149,9 @@ void Game::ParseInput() {
 	}
 	else if (input == "banban") {
 		dialogueManagerInstance->currentDialogue = "smash";
+	}
+	else if (input == "spell") {
+		dialogueManagerInstance->currentDialogue = "Enter a spell name: ";
 	}
 	else {
 		dialogueManagerInstance->currentDialogue = "Unknown command.";
@@ -194,4 +206,4 @@ void Game::MovePlayer(int dir) {
 	}
 }
 
-
+	

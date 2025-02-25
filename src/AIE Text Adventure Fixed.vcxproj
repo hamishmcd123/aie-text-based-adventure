@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="boxofdonuts.cpp" />
     <ClCompile Include="cat.cpp" />
     <ClCompile Include="dialoguemanager.cpp" />
     <ClCompile Include="game.cpp" />

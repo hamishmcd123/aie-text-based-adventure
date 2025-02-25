@@ -1,7 +1,7 @@
 #pragma once
 #include "string.hpp"
-#include <list>
 #include "room.hpp"
+#include <vector>
 
 namespace Core {
 class Player {
@@ -13,7 +13,7 @@ public:
 	int COLNUM;
 	int ROWNUM;
 private:
-	std::list<String> spells;
+	std::vector<String> spells;
 };
 
 }
