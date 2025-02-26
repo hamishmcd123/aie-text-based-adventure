@@ -11,7 +11,8 @@ Player::~Player() {}
 bool Player::FindSpell(String spell) {
 	int L = 0;
 	int R = spells.size() - 1;
-		int M = (int)((L + R) / 2); 
+	while (L <= R) {
+	int M = (int)((L + R) / 2); 
 		if (spells[M] == spell) {
 			return 1;
 		}
@@ -21,5 +22,6 @@ bool Player::FindSpell(String spell) {
 		if (!(spells[M] < spell)) {
 			L--; 
 		}
-		return 0;
+	}
+	return 0;
 	}

@@ -80,18 +80,34 @@ void Game::Run() {
 		dialogueManagerInstance->PrintDialogue();
 		std::cout << '\n' << "> "; 
 		if (currentState == NORMAL) {
-		input.Clear();
-		std::cin >> input;
-		while (!(std::cin.good())) {
-			std::cin.clear();
-			std::cin.ignore(std::cin.rdbuf()->in_avail());
+			input.Clear();
 			std::cin >> input;
-
-		}
-		ParseInput();
-		}
+			while (!(std::cin.good())) {
+				std::cin.clear();
+				std::cin.ignore(std::cin.rdbuf()->in_avail());
+				std::cin >> input;
+			}
+			ParseInput();
+			}
+		else if (currentState == SPELLCASTING) {
+			input.Clear();
+			String tempspell; 
+			std::cin >> tempspell;
+				while (!(std::cin.good())) {
+				std::cin.clear();
+				std::cin.ignore(std::cin.rdbuf()->in_avail());
+				std::cin >> tempspell;
+			}
+				if (player->FindSpell(tempspell)) {
+					dialogueManagerInstance->currentDialogue = "You know that spell.";
+				}
+				else {
+					dialogueManagerInstance->currentDialogue = "You don't know that spell. ";
+				}
+			currentState = NORMAL;
 		}
 	}
+}
 
 void Game::RoomDescription() {
 		player->currentRoom = &(rooms[player->ROWNUM][player->COLNUM]);
@@ -152,6 +168,7 @@ void Game::ParseInput() {
 	}
 	else if (input == "spell") {
 		dialogueManagerInstance->currentDialogue = "Enter a spell name: ";
+		currentState = SPELLCASTING;
 	}
 	else {
 		dialogueManagerInstance->currentDialogue = "Unknown command.";

@@ -27,7 +27,7 @@ namespace Core {
 				NORMAL,
 				SPELLCASTING
 			};
-		static enum gamestates currentState;
+		enum gamestates currentState;
 			World::Item* itemArray[3];
 		private:
 			World::Room rooms[8][8];
