@@ -2,7 +2,7 @@
 
 using namespace Core;
 
-Player::Player() : spells{ "Eclipse", "Eruption", "Frostbite","Levitate","Mirage","Petrify","Polymorph","Teleport","Thunderwave","Vortex" } {}
+Player::Player() : spells{ "Eclipse", "Eruption", "Frostbite","Levitate","Mirage","Petrify","Polymorph","Teleport","Thunderwave","Vortex", "banban"} {}
 
 Player::~Player() {}
 
@@ -17,10 +17,10 @@ bool Player::FindSpell(String spell) {
 			return 1;
 		}
 		if (spells[M] < spell) {
-			L++;
+			L = M + 1;
 		}
 		if (!(spells[M] < spell)) {
-			L--; 
+			R = M - 1;
 		}
 	}
 	return 0;

@@ -1,6 +1,7 @@
 #pragma once
 #include "string.hpp"
 #include "room.hpp"
+#include <cmath>
 #include <vector>
 
 namespace Core {

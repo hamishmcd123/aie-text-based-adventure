@@ -37,10 +37,11 @@ currentState = NORMAL;
 }
 
 Game::~Game() {
-	delete player;
 	for (World::Item* i : itemArray) {
 		delete i;
 	}
+	delete player;
+	delete dialogueManagerInstance;
 }
 
 void Game::DrawRooms() {
@@ -144,7 +145,7 @@ void Game::ParseInput() {
 		exit(0);
 	}
 	else if (input == "help") {
-		dialogueManagerInstance->currentDialogue = "CONTROLS:\n Move North - mvn \n Move East - mve \n Move South - mvs \n Move West - mvw \n Room Description - desc \n Quit - quit";
+		dialogueManagerInstance->currentDialogue = "CONTROLS:\n Move North - mvn \n Move East - mve \n Move South - mvs \n Move West - mvw \n Room Description - desc \n Use - use \n Quit - quit";
 	}
 	else if (input == "seed") {
 		// should be big enough for the forseeable future...
