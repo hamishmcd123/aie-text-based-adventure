@@ -174,7 +174,19 @@ void Game::ParseInput() {
 		dialogueManagerInstance->currentDialogue = "Unknown command.";
 	}
 }
+void Game::RoomCheck() {
+	if (player->currentRoom->item == itemArray[0]) {
+		dialogueManagerInstance->currentDialogue = "There is a lamp in the room. It looks old."; 
+	}
+	else if (player->currentRoom->item == itemArray[1]) {
+		dialogueManagerInstance->currentDialogue = "There is a cat in the room. What a head."; 
 
+	}
+	else if (player->currentRoom->item == itemArray[2]) {
+		dialogueManagerInstance->currentDialogue = "There is a box of donuts in the room.";
+	}
+
+}
 void Game::MovePlayer(int dir) {
 	switch (dir) { 
 	// NORTH
@@ -221,6 +233,7 @@ void Game::MovePlayer(int dir) {
 	default: 
 		break;
 	}
+	RoomCheck();
 }
 
 	

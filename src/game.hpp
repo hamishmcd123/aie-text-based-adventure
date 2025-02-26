@@ -29,6 +29,7 @@ namespace Core {
 			};
 		enum gamestates currentState;
 			World::Item* itemArray[3];
+			void RoomCheck(); 
 		private:
 			World::Room rooms[8][8];
 			Player* player;
