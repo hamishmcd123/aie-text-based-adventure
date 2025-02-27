@@ -45,6 +45,9 @@
     <ClCompile Include="boxofdonuts.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="spell.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.hpp">

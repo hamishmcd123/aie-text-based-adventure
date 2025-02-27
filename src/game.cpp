@@ -90,7 +90,7 @@ void Game::Run() {
 			}
 			ParseInput();
 			}
-		else if (currentState == SPELLCASTING) {
+		else if (currentState == SPELLFINDING) {
 			input.Clear();
 			String tempspell; 
 			std::cin >> tempspell;
@@ -106,6 +106,28 @@ void Game::Run() {
 					dialogueManagerInstance->currentDialogue = "You don't know that spell. ";
 				}
 			currentState = NORMAL;
+		}
+		else if (currentState = SPELLCASTING) {
+			input.Clear();
+			String tempspell;
+			std::cin >> tempspell;
+				while (!(std::cin.good())) {
+				std::cin.clear();
+				std::cin.ignore(std::cin.rdbuf()->in_avail());
+				std::cin >> tempspell;
+			}
+				if (player->FindSpell(tempspell)) {
+					for (int i = 0; i < player->knownSpells.size(); i++) {
+						if (player->knownSpells[i].name == tempspell) {
+							player->knownSpells[i].Cast();
+						}
+					}
+				}
+				else {
+					dialogueManagerInstance->currentDialogue = "Spell not found";
+				}
+				currentState = NORMAL;
+
 		}
 	}
 }
@@ -145,7 +167,7 @@ void Game::ParseInput() {
 		exit(0);
 	}
 	else if (input == "help") {
-		dialogueManagerInstance->currentDialogue = "CONTROLS:\n Move North - mvn \n Move East - mve \n Move South - mvs \n Move West - mvw \n Room Description - desc \n Use - use \n Quit - quit";
+		dialogueManagerInstance->currentDialogue = "CONTROLS:\n Move North - mvn \n Move East - mve \n Move South - mvs \n Move West - mvw \n Room Description - desc \n Use - use \n Look Up Spell - spell \n Cast Spell - cast \n Quit - quit";
 	}
 	else if (input == "seed") {
 		// should be big enough for the forseeable future...
@@ -169,7 +191,11 @@ void Game::ParseInput() {
 	}
 	else if (input == "spell") {
 		dialogueManagerInstance->currentDialogue = "Enter a spell name: ";
-		currentState = SPELLCASTING;
+		currentState = SPELLFINDING;
+	}
+	else if (input == "cast") {
+		dialogueManagerInstance->currentDialogue = "Enter a spell to cast: ";
+		currentState = SPELLCASTING; 
 	}
 	else {
 		dialogueManagerInstance->currentDialogue = "Unknown command.";

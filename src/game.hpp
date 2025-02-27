@@ -25,7 +25,8 @@ namespace Core {
 			void RoomDescription();
 			enum gamestates {
 				NORMAL,
-				SPELLCASTING
+				SPELLCASTING,
+				SPELLFINDING
 			};
 		enum gamestates currentState;
 			World::Item* itemArray[3];

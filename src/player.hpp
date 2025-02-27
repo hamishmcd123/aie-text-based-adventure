@@ -1,6 +1,7 @@
 #pragma once
 #include "string.hpp"
 #include "room.hpp"
+#include "spell.hpp"
 #include <cmath>
 #include <vector>
 
@@ -13,6 +14,7 @@ public:
 	World::Room* currentRoom;
 	int COLNUM;
 	int ROWNUM;
+	std::vector<World::Spell> knownSpells; 
 private:
 	std::vector<String> spells;
 };
