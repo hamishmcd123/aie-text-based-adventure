@@ -124,7 +124,7 @@ void Game::Run() {
 					}
 				}
 				else {
-					dialogueManagerInstance->currentDialogue = "Spell not found";
+					dialogueManagerInstance->currentDialogue = "Spell not found.";
 				}
 				currentState = NORMAL;
 
