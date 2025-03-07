@@ -1,4 +1,4 @@
-#include "player.hpp"
+#include "../include/player.hpp"
 
 using namespace Core;
 
@@ -27,7 +27,7 @@ bool Player::FindSpell(String spell) {
 	while (L <= R) {
 	int M = (int)((L + R) / 2); 
 		if (spells[M] == spell) {
-			return 1;
+			return true;
 		}
 		if (spells[M] < spell) {
 			L = M + 1;
@@ -36,5 +36,5 @@ bool Player::FindSpell(String spell) {
 			R = M - 1;
 		}
 	}
-	return 0;
+	return false;
 	}

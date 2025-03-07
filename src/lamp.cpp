@@ -1,4 +1,4 @@
-#include "lamp.hpp"
+#include "../include/lamp.hpp"
 using namespace World;
 
 Lamp::Lamp() : description(""){

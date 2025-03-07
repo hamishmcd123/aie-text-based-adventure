@@ -12,7 +12,6 @@ public:
 	// This is necessary to use sprintf. 
 	// itoa is NOT defined in the C-standard
 	// https://cplusplus.com/reference/cstdlib/itoa/
-	char buff[50]; 
 private:
 	int count;
 };

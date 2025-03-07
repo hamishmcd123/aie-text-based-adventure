@@ -1,4 +1,4 @@
-#include "spell.hpp"
+#include "../include/spell.hpp"
 
 using namespace World;
 

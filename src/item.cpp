@@ -1,4 +1,4 @@
-#include "item.hpp"
+#include "../include/item.hpp"
 using namespace World; 
 Core::DialogueManager* Item::dialogueManagerInstance = Core::DialogueManager::GetInstance();
 

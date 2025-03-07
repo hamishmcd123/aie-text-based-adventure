@@ -102,7 +102,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -116,7 +116,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -127,29 +127,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="boxofdonuts.cpp" />
-    <ClCompile Include="cat.cpp" />
-    <ClCompile Include="dialoguemanager.cpp" />
-    <ClCompile Include="game.cpp" />
-    <ClCompile Include="item.cpp" />
-    <ClCompile Include="lamp.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="player.cpp" />
-    <ClCompile Include="room.cpp" />
-    <ClCompile Include="spell.cpp" />
-    <ClCompile Include="string.cpp" />
+    <ClCompile Include="src\boxofdonuts.cpp" />
+    <ClCompile Include="src\cat.cpp" />
+    <ClCompile Include="src\dialoguemanager.cpp" />
+    <ClCompile Include="src\game.cpp" />
+    <ClCompile Include="src\item.cpp" />
+    <ClCompile Include="src\lamp.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\player.cpp" />
+    <ClCompile Include="src\room.cpp" />
+    <ClCompile Include="src\spell.cpp" />
+    <ClCompile Include="src\string.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="boxofdonuts.hpp" />
-    <ClInclude Include="cat.hpp" />
-    <ClInclude Include="dialoguemanager.hpp" />
-    <ClInclude Include="game.hpp" />
-    <ClInclude Include="item.hpp" />
-    <ClInclude Include="lamp.hpp" />
-    <ClInclude Include="player.hpp" />
-    <ClInclude Include="room.hpp" />
-    <ClInclude Include="spell.hpp" />
-    <ClInclude Include="string.hpp" />
+    <ClInclude Include="include\boxofdonuts.hpp" />
+    <ClInclude Include="include\cat.hpp" />
+    <ClInclude Include="include\dialoguemanager.hpp" />
+    <ClInclude Include="include\game.hpp" />
+    <ClInclude Include="include\item.hpp" />
+    <ClInclude Include="include\lamp.hpp" />
+    <ClInclude Include="include\player.hpp" />
+    <ClInclude Include="include\room.hpp" />
+    <ClInclude Include="include\spell.hpp" />
+    <ClInclude Include="include\string.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

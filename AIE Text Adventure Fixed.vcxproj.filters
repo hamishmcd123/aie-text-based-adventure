@@ -15,69 +15,69 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="game.cpp">
+    <ClCompile Include="src\boxofdonuts.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="room.cpp">
+    <ClCompile Include="src\dialoguemanager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="string.cpp">
+    <ClCompile Include="src\game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="src\item.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="item.cpp">
+    <ClCompile Include="src\lamp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="player.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="dialoguemanager.cpp">
+    <ClCompile Include="src\player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="lamp.cpp">
+    <ClCompile Include="src\room.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cat.cpp">
+    <ClCompile Include="src\spell.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="boxofdonuts.cpp">
+    <ClCompile Include="src\string.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="spell.cpp">
+    <ClCompile Include="src\cat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="game.hpp">
+    <ClInclude Include="include\boxofdonuts.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="player.hpp">
+    <ClInclude Include="include\cat.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="item.hpp">
+    <ClInclude Include="include\dialoguemanager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="room.hpp">
+    <ClInclude Include="include\game.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="spell.hpp">
+    <ClInclude Include="include\item.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="lamp.hpp">
+    <ClInclude Include="include\lamp.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="boxofdonuts.hpp">
+    <ClInclude Include="include\player.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cat.hpp">
+    <ClInclude Include="include\room.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="string.hpp">
+    <ClInclude Include="include\spell.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="dialoguemanager.hpp">
+    <ClInclude Include="include\string.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

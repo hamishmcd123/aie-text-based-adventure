@@ -1,8 +1,9 @@
-#include "game.hpp"
+#include "../include/game.hpp"
 
 using namespace Core; 
 
 Game::Game() {
+toExit = false;
 currentState = NORMAL;
  seed = std::time(NULL);
  std::srand(seed);
@@ -37,8 +38,8 @@ currentState = NORMAL;
 }
 
 Game::~Game() {
-	for (World::Item* i : itemArray) {
-		delete i;
+	for (int i = 0; i < 3; i++) {
+		delete itemArray[i];
 	}
 	delete player;
 	delete dialogueManagerInstance;
@@ -73,7 +74,6 @@ void Game::DrawRooms() {
 
 
 void Game::Run() {
-
 	while (true) {
 		system("cls");
 		DrawRooms();
@@ -107,7 +107,7 @@ void Game::Run() {
 				}
 			currentState = NORMAL;
 		}
-		else if (currentState = SPELLCASTING) {
+		else if (currentState == SPELLCASTING) {
 			input.Clear();
 			String tempspell;
 			std::cin >> tempspell;
@@ -129,24 +129,15 @@ void Game::Run() {
 				currentState = NORMAL;
 
 		}
+		if (toExit) {
+			break;
+		}
 	}
 }
 
 void Game::RoomDescription() {
 		player->currentRoom = &(rooms[player->ROWNUM][player->COLNUM]);
-		// Could probably put inside something...
-		if (player->currentRoom->item == itemArray[0]) {
-			(*itemArray[0]).Description();
-		}
-		else if (player->currentRoom->item == itemArray[1]) {
-			(*itemArray[1]).Description();
-		}
-		else if (player->currentRoom->item == itemArray[2]) {
-			(*itemArray[2]).Description();
-		}
-		else {
-			dialogueManagerInstance->currentDialogue = "The room is empty.";
-		}
+		player->currentRoom->Description(itemArray);
 }
 
 void Game::ParseInput() {
@@ -164,7 +155,7 @@ void Game::ParseInput() {
 		MovePlayer(4);
 	}
 	else if (input == "quit") {
-		exit(0);
+		toExit = true; 
 	}
 	else if (input == "help") {
 		dialogueManagerInstance->currentDialogue = "CONTROLS:\n Move North - mvn \n Move East - mve \n Move South - mvs \n Move West - mvw \n Room Description - desc \n Use - use \n Look Up Spell - spell \n Cast Spell - cast \n Quit - quit";

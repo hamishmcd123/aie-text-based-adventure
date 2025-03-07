@@ -1,6 +1,4 @@
 #pragma once
-#include <stdlib.h>
-#include <ctime>
 #include <iostream>
 #include "room.hpp"
 #include "player.hpp"
@@ -34,5 +32,6 @@ namespace Core {
 		private:
 			World::Room rooms[8][8];
 			Player* player;
+			bool toExit; 
 		};
 }

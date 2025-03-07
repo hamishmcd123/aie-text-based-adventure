@@ -1,4 +1,4 @@
-#include "dialoguemanager.hpp"
+#include "../include/dialoguemanager.hpp"
 
 using namespace Core;
 
