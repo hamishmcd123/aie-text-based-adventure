@@ -1,13 +1,8 @@
 #pragma once
-#include <iostream>
 #include "room.hpp"
 #include "player.hpp"
 #include "string.hpp"
 #include "dialoguemanager.hpp"
-#include "lamp.hpp"
-#include "cat.hpp"
-#include "boxofdonuts.hpp"
-
 namespace Core {
 		class Game {
 		public:

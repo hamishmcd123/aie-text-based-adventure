@@ -1,4 +1,7 @@
 #include "../include/game.hpp"
+#include "../include/cat.hpp"
+#include "../include/lamp.hpp"
+#include "../include/boxofdonuts.hpp"
 
 using namespace Core; 
 
@@ -137,7 +140,7 @@ void Game::Run() {
 
 void Game::RoomDescription() {
 		player->currentRoom = &(rooms[player->ROWNUM][player->COLNUM]);
-		player->currentRoom->Description(itemArray);
+		player->currentRoom->Description();
 }
 
 void Game::ParseInput() {

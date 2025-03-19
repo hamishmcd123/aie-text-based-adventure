@@ -9,16 +9,12 @@ Room::Room() {
 }
 
 Room::~Room() {}
-void Room::Description(Item** itemArray) const {
-	for (int i = 0; i < 3; i++) {
-		if (item == itemArray[i]) {
-			itemArray[i]->Description();
-			return;
-		}
-		else {
-			continue;
-		}
+void Room::Description() const {
+	if (item != nullptr) {
+		item->Description();
 	}
+	else {
 	dialogueManagerInstance->currentDialogue = "The room is empty.";
+	}
 }
 

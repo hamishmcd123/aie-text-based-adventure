@@ -9,7 +9,7 @@ namespace World {
 		Item* item;
 		Room();
 		~Room();
-		void Description(Item** itemArray) const;
+		void Description() const;
 		int COLNUM;
 		int ROWNUM;
 		static Core::DialogueManager* dialogueManagerInstance;
